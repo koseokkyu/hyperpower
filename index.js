@@ -14,6 +14,22 @@ const PARTICLE_VELOCITY_RANGE = {
   y: [-3.5, -1.5]
 };
 
+
+exports.decorateConfig = (config) => {
+	return Objet.assign({}, config, {
+		borderColor : 'yellow',
+		cursorColor : 'yelow',
+		css: '
+		${config.css || ''}
+		.tabs_nav .tabs_list .tab_next {
+			color : yellow;
+		}
+		.tabs_nav .tabs_title {
+			color: yellow;
+		}
+		'
+	});
+}
 // Our extension's custom redux middleware. Here we can intercept redux actions and respond to them.
 exports.middleware = (store) => (next) => (action) => {
   // the redux `action` object contains a loose `type` string, the 
